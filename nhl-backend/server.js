@@ -12,9 +12,10 @@ app.set('views', __dirname + '/views')
 
 //  Routes
 const gameRoutes = require('./controllers/game')
+const standingsRoutes = require('./controllers/standings')
 
 app.use('/game', gameRoutes)
-
+app.use('/standings', standingsRoutes)
 
 const PORT = process.env.PORT || 3000
 

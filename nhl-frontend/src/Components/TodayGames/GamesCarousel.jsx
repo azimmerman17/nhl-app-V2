@@ -40,7 +40,7 @@ const GamesCarousel = ({ items }) => {
       }   
 
     return (
-      <Col id={id} sm={2} className='m-1 text-center font-weight-bold border border-dark bg-white games-wrapper rounded'>
+      <Col key={id} sm={2} className='m-1 text-center font-weight-bold border border-dark bg-white games-wrapper rounded'>
         {time(gameState)}
         {teamObj(awayTeam)}
         {teamObj(homeTeam)}

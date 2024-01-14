@@ -14,7 +14,7 @@ const TodayGamesCarousel = ({ carouselGames }) => {
 
   const carouselItems = carouselGames.map((items, i) => {
     return(
-      <Carousel.Item id={`item-${i}`} className='text-center'>
+      <Carousel.Item key={`item-${i}`} className='text-center'>
         <GamesCarousel items={items} />
       </Carousel.Item>
     )
