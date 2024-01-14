@@ -20,8 +20,6 @@ const TodaysGamesProvider = ({ children }) => {
       if (!todaysGames) fetchData()
     }, [todaysGames])
     
-    console.log(todaysGames)
-
     return (
         <TodaysGames.Provider value={{ todaysGames, setTodaysGames }}>
             {children}

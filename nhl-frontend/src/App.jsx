@@ -3,8 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import NavBar from './Components/NavBar'
+
 import IsMobileProvider from './Contexts/IsMobile'
 import TodaysGamesProvider from './Contexts/todaysGames'
+import TodaysGamesWrapper from './Components/TodayGames/TodayGamesWrapper'
 
 function App() {
   const [title, setTitle] = useState('APP')
@@ -14,10 +17,15 @@ function App() {
   }, [title])
 
   return (
-    <div>
+    <div className='bg-skategray'>
       <IsMobileProvider>
         <TodaysGamesProvider>
-        NHL APP
+          <header>
+            <NavBar />
+            <div style={{marginTop: '73px'}}></div>
+            <TodaysGamesWrapper title={title} />
+          </header>
+          NHL APP
         </TodaysGamesProvider>
       </IsMobileProvider>
     </div>
