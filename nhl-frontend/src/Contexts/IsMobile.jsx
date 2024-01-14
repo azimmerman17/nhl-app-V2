@@ -10,8 +10,6 @@ const IsMobileProvider = ({ children }) => {
       else setIsMobile(false)
     }, [])
 
-    console.log(isMobile)
-
     return (
         <IsMobile.Provider value={{ isMobile, setIsMobile }}>
             {children}

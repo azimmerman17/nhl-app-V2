@@ -2,7 +2,9 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import IsMobileProvider from './assets/Contexts/isMobile'
+
+import IsMobileProvider from './Contexts/IsMobile'
+import TodaysGamesProvider from './Contexts/todaysGames'
 
 function App() {
   const [title, setTitle] = useState('APP')
@@ -14,7 +16,9 @@ function App() {
   return (
     <div>
       <IsMobileProvider>
+        <TodaysGamesProvider>
         NHL APP
+        </TodaysGamesProvider>
       </IsMobileProvider>
     </div>
   )
