@@ -45,7 +45,7 @@ if (!isMobile && todaysGames && title !== 'NHL SCORES') {
               <p className='fw-bold m-0'>{formatDate(date)}</p>
             </div>
           </Col>
-          <Col md={11} className='text-center font-weight-bold bg-skategray games-wrapper'>
+          <Col md={11} className='bg-skategray games-wrapper'>
             <TodayGamesCarousel carouselGames={carouselGames} />
           </Col>          
         </Row>

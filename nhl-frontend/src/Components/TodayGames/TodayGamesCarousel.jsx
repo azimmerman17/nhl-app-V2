@@ -15,7 +15,11 @@ const TodayGamesCarousel = ({ carouselGames }) => {
   const carouselItems = carouselGames.map((items, i) => {
     console.log(items)
     return(
-      <Carousel.Item key={`item-${i}`} className='text-center'>
+      <Carousel.Item 
+        key={`item-${i}`}
+        className='text-center'
+        interval={5 * 1000} // 5 second interval
+      >
         <GamesCarousel items={items} />
       </Carousel.Item>
     )

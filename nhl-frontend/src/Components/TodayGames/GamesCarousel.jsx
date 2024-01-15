@@ -33,10 +33,17 @@ const GamesCarousel = ({ items }) => {
         const { abbrev, logo, score } = team
     
         return (
-          <div>
-            <img src={logo} alt={`${abbrev} Logo`} className='logo-sm'/>
-            <span >{abbrev}{gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' ? ` - ${score}` : null}</span>
-          </div>
+          <Row className='m-0'>
+            <Col>
+              <img src={logo} alt={`${abbrev} Logo`} className='logo-sm'/>
+            </Col>
+            <Col>
+              <h5 className='m-0 text-start'>{abbrev}</h5>
+            </Col>
+            <Col>
+              {gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' ? <h5 className='m-0'>{score}</h5> : null}
+            </Col>
+          </Row>
         )
       }   
 
