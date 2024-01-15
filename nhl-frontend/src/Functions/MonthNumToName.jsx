@@ -39,7 +39,7 @@ const MonthNumToName = (num, short) => {
       month = 'December'
       break
   }
-
+  // if statement make month to 3 letters
   if (short) {
     month = month.substring(0,3).toUpperCase()
   }

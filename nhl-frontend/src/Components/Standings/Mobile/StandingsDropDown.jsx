@@ -14,16 +14,16 @@ const StandingsDropDown = ({ standingsTabList, standingsTab, setStandingsTab }) 
         {
           standingsTabList.map(tab => {
             const { nme } = tab
-        return (
-          <Dropdown.Item 
-            eventKey={nme}
-            title={nme}
-            key={`tab-${nme}`}
-            onClick={(e) => setStandingsTab(nme)}
-          >
-            {nme}
-          </Dropdown.Item>
-        )
+            return (
+              <Dropdown.Item 
+                eventKey={nme}
+                title={nme}
+                key={`tab-${nme}`}
+                onClick={(e) => setStandingsTab(nme)}
+              >
+                {nme}
+              </Dropdown.Item>
+            )
           })
         }
       </Dropdown.Menu>

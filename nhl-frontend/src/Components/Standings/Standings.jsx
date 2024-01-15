@@ -17,6 +17,7 @@ const Standings = ({ setTitle }) => {
     console.log(standingsTab)
   },[standingsTab])
 
+  // List of different standings views
   const standingsTabList = [
     { nme: 'Divisional' },
     { nme: 'Wild Card' },

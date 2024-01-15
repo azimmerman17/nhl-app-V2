@@ -1,9 +1,5 @@
-import { useState } from 'react';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-
 
 const StandingsTabs = ({ standingsTabList, standingsTab, setStandingsTab }) => {
   return (

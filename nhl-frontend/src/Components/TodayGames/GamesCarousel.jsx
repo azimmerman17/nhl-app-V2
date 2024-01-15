@@ -1,4 +1,3 @@
-import Carousel from 'react-bootstrap/Carousel'
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
@@ -6,11 +5,13 @@ import Container from "react-bootstrap/Container"
 import UTCTimeToEastCoast from '../../Functions/UTCTimeToEastCoast'
 
 const GamesCarousel = ({ items }) => {
+  // builds each game card in the carousel
   const games = items.map(item => {
-    console.log(item)
+    // no game no card on slide ex. 10 games  returns slides of 4 - 4 - 2 
     if (!item) return null
     const { awayTeam, id, homeTeam, gameState, periodDescriptor, startTimeUTC } = item
 
+    // displays the time of game or state of game
     const time = (state) => {
     const { number, periodType } = periodDescriptor
     if (state === 'FINAL' || state === 'OFF') return <p className='m-0 game-wrapper-font-sm'>Final{number >3 ? ` ${periodType}`: null}</p>
@@ -24,11 +25,13 @@ const GamesCarousel = ({ items }) => {
 
       return <p className='m-0 game-wrapper-font-sm'>{period}</p>
       } else {
+        // start time in EST
         const startTime = UTCTimeToEastCoast(startTimeUTC)
         return <p className='m-0 game-wrapper-font-sm'>{startTime}</p>
       }
     }
 
+    // Builds each team row
     const teamObj = (team) => {
         const { abbrev, logo, score } = team
     
@@ -60,6 +63,7 @@ const GamesCarousel = ({ items }) => {
 
   })
   return (
+    // 2 empty columns to center the games
     <Container>
       <Row>
         <Col sm={2}></Col>

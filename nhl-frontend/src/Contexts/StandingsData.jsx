@@ -1,3 +1,5 @@
+// context for the standings data
+
 import { useEffect, createContext, useState } from "react";
 
 export const StandingsData = createContext()

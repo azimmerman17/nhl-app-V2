@@ -12,10 +12,12 @@ const TodaysGamesWrapper = ({ title }) => {
   const { todaysGames, setTodaysGames } = useContext(TodaysGames)
   const { isMobile, setIsMobile } = useContext(IsMobile)
 
-if (!isMobile && todaysGames && title !== 'NHL SCORES') {
+  // check for if mobile device or scores page and do not display
+  if (!isMobile && todaysGames && title !== 'NHL SCORES') {
     const { date, dayAbbrev, games } = todaysGames
     let carouselGames = []
 
+    // create a max 4 slide carousel arrays with four games in each slide
     if (games.length === 0) carouselGames = 'No Games Today'
     if (games.length > 0) {
       carouselGames.push([games[0],games[1],games[2],games[3]])
@@ -30,6 +32,7 @@ if (!isMobile && todaysGames && title !== 'NHL SCORES') {
       carouselGames.push([games[12],games[13],games[14],games[15]])
     }
 
+    // formats date for scores wrapper
     const formatDate = (date) => {
       const dateObj = TranslateDate(date)
       const { month, day } = dateObj
@@ -39,12 +42,14 @@ if (!isMobile && todaysGames && title !== 'NHL SCORES') {
     return (
       <Container>
         <Row >
+          {/* Date stap */}
           <Col md={1} className='text-center font-weight-bold bg-skategray games-wrapper'>
             <div className='fw-bold mt-2'>
               <p className='fw-bold m-0'>{dayAbbrev}</p>
               <p className='fw-bold m-0'>{formatDate(date)}</p>
             </div>
           </Col>
+          {/* Col for the Carousel */}
           <Col md={11} className='bg-skategray games-wrapper'>
             <TodayGamesCarousel carouselGames={carouselGames} />
           </Col>          

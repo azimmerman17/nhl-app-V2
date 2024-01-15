@@ -1,3 +1,5 @@
+// Translates UTC time to EST - may need update to account for DST
+
 const UTCTimeToEastCoast = (utcTime)=> {
   let amPm 
   const time = utcTime.split('T')
