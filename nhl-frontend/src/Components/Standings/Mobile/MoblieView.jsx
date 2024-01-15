@@ -1,6 +1,6 @@
 import StandingsDropDown from "./StandingsDropDown"
 
-const MobileView = ({ standingsData, standingsTabList,  standingsTab, setStandingsTab }) => { 
+const MobileView = ({ standingsTabList,  standingsTab, setStandingsTab }) => { 
 
   return (
     <div>

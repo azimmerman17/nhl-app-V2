@@ -17,16 +17,16 @@ if (!isMobile && todaysGames && title !== 'NHL SCORES') {
     let carouselGames = []
 
     if (games.length === 0) carouselGames = 'No Games Today'
-    if (games.length <= 4 && games.length > 0) {
+    if (games.length > 0) {
       carouselGames.push([games[0],games[1],games[2],games[3]])
     }
-    if (games.length <= 8 && games.length > 4) {
+    if (games.length > 4) {
       carouselGames.push([games[4],games[5],games[6],games[7]])
     }
-    if (games.length <= 12 && games.length > 8) {
+    if (games.length > 8) {
       carouselGames.push([games[8],games[9],games[10],games[11]])
     }
-    if (games.length <= 16 && games.length > 12) {
+    if (games.length > 12) {
       carouselGames.push([games[12],games[13],games[14],games[15]])
     }
 

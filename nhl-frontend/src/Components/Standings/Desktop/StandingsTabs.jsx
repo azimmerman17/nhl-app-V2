@@ -1,33 +1,34 @@
 import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 
 const StandingsTabs = ({ standingsTabList, standingsTab, setStandingsTab }) => {
-
-
-
   return (
-    <Tabs
-      defaultActiveKey={standingsTab}
-      id="fill-tab"
-      className="mb-3"
-      fill
-    >
-    {
-      standingsTabList.map(tab => {
-        const { nme } = tab
-        return (
-          <Tab 
-            eventKey={nme}
-            title={nme}
-            key={`tab-${nme}`}
-          >
-          </Tab>
-        )
-      })
-    }
-    </Tabs>
+      <ButtonGroup className='bg-white p-2'>
+        {
+          standingsTabList.map((tab, i) => {
+            const { nme } = tab
+            return (
+              <ToggleButton
+                className='px-4'
+                key={`tab-${nme}`}
+                id={`tab-${nme}`}
+                type="radio"
+                variant={standingsTab === nme ? 'outline-primary' : 'outline-secondary'}
+                name="tab"
+                value={nme}
+                checked={standingsTab === nme}
+                onChange={(e) => setStandingsTab(e.currentTarget.value)}
+              >
+                {nme}
+              </ToggleButton>
+            )
+          })
+        }
+      </ButtonGroup>
   )
 }
 

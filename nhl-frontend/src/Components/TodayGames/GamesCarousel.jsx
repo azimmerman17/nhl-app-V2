@@ -7,6 +7,7 @@ import UTCTimeToEastCoast from '../../Functions/UTCTimeToEastCoast'
 
 const GamesCarousel = ({ items }) => {
   const games = items.map(item => {
+    console.log(item)
     if (!item) return null
     const { awayTeam, id, homeTeam, gameState, periodDescriptor, startTimeUTC } = item
 
@@ -34,7 +35,7 @@ const GamesCarousel = ({ items }) => {
         return (
           <div>
             <img src={logo} alt={`${abbrev} Logo`} className='logo-sm'/>
-            <span >{abbrev} - {score}</span>
+            <span >{abbrev}{gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' ? ` - ${score}` : null}</span>
           </div>
         )
       }   
@@ -54,9 +55,9 @@ const GamesCarousel = ({ items }) => {
   return (
     <Container>
       <Row>
-        <Col sm={1}></Col>
+        <Col sm={2}></Col>
         {games}
-        <Col sm={1}></Col>
+        <Col sm={2}></Col>
       </Row>
     </Container>
   )

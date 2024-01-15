@@ -9,6 +9,7 @@ import Standings from './Components/Standings/Standings'
 import IsMobileProvider from './Contexts/IsMobile'
 import TodaysGamesProvider from './Contexts/todaysGames'
 import TodaysGamesWrapper from './Components/TodayGames/TodayGamesWrapper'
+import StandingsDataProvider from './Contexts/StandingsData'
 
 function App() {
   const [title, setTitle] = useState('APP')
@@ -22,19 +23,22 @@ function App() {
       <Router>
         <IsMobileProvider>
           <TodaysGamesProvider>
-            <header>
-              <NavBar />
-              <div style={{marginTop: '73px'}}></div>
-              <TodaysGamesWrapper title={title} />
-            </header>
-            <main>
-              <Routes>
-                {/* <Route exact path='/' element={<Home />} />  */}
-                <Route path='/standings' element={<Standings setTitle={setTitle} />} />
-                {/* <Route path='/scores' element={<Scores data={data} setPath={setPath} setTitle={setTitle} />} /> */}
-              </Routes>
-              NHL APP
-            </main>
+            <StandingsDataProvider>
+
+              <header>
+                <NavBar />
+                <div style={{marginTop: '73px'}}></div>
+                <TodaysGamesWrapper title={title} />
+              </header>
+              <main>
+                <Routes>
+                  {/* <Route exact path='/' element={<Home />} />  */}
+                  <Route path='/standings' element={<Standings setTitle={setTitle} />} />
+                  {/* <Route path='/scores' element={<Scores data={data} setPath={setPath} setTitle={setTitle} />} /> */}
+                </Routes>
+                NHL APP
+              </main>
+            </StandingsDataProvider>
           </TodaysGamesProvider>
         </IsMobileProvider>
       </Router>
