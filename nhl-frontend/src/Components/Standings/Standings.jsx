@@ -9,13 +9,9 @@ import MobileView from "./Mobile/MoblieView";
 
 const Standings = ({ setTitle }) => {
   const { isMobile, setIsMobile } = useContext(IsMobile)
-  const [ standingsTab, setStandingsTab ] = useState('Divisional')
   const [ standingsData, setStandingsData ] = useState(null)
 
-  useEffect(() => {
-    setTitle(`${standingsTab} Standings`)
-    console.log(standingsTab)
-  },[standingsTab])
+  setTitle('Standings')
 
   // List of different standings views
   const standingsTabList = [
@@ -29,8 +25,8 @@ const Standings = ({ setTitle }) => {
   return (
     <div className={isMobile ? 'p-3 bg-white' : 'm-4 p-3 bg-white'}>
       {isMobile ? 
-        <MobileView standingsData={standingsData} standingsTabList={standingsTabList}  standingsTab={standingsTab} setStandingsTab={setStandingsTab} /> : 
-        <StandingsTabs standingsTabList={standingsTabList}  standingsTab={standingsTab} standingsData={standingsData} setStandingsTab={setStandingsTab} />
+        <MobileView standingsData={standingsData} standingsTabList={standingsTabList} /> : 
+        <StandingsTabs standingsTabList={standingsTabList} standingsData={standingsData} />
       }
     </div>
   )
