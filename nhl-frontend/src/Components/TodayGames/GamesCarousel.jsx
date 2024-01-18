@@ -3,33 +3,33 @@ import Col from "react-bootstrap/Col"
 import Container from "react-bootstrap/Container"
 
 import UTCTimeToLocal from '../../Functions/UTCTimeToLocal'
+import ConfigureGameClock from "../../Functions/ConfigureGameClock"
 
 const GamesCarousel = ({ items }) => {
   // builds each game card in the carousel
   const games = items.map(item => {
     // no game no card on slide ex. 10 games  returns slides of 4 - 4 - 2 
     if (!item) return null
-    const { awayTeam, id, homeTeam, gameState, periodDescriptor, startTimeUTC } = item
+    const { awayTeam, id, homeTeam, gameState, periodDescriptor, clock, startTimeUTC } = item
     console.log(item)
+
     // displays the time of game or state of game
-    const time = (state) => {
+    const time = (gameState, clock) => {
+      // Games yet to start
       if (gameState === 'FUT' || gameState === 'PRE') {
-        // start time in EST
+        // start time in Local
         const startTime = UTCTimeToLocal(startTimeUTC)
         return <p className='m-0 game-wrapper-font-sm'>{startTime}</p>
       } else {
         const { number, periodType } = periodDescriptor
-
-        if (state === 'FINAL' || state === 'OFF') return <p className='m-0 game-wrapper-font-sm'>Final{number >3 ? ` ${periodType}`: null}</p>
-        else if (state === 'LIVE') {
-          let period
-          if (number === 1) period = '1st'
-          else if (number === 2) period = '2nd'
-        else if (number === 3) period = '3rd'
-        else if (number === 4) period = 'OT'
-        else period = 'SO'
+        // Games that are complete
+        if (gameState === 'FINAL' || gameState === 'OFF') return <p className='m-0 game-wrapper-font-sm'>Final{number > 3 ? ` ${periodType}`: null}</p>
+        // Games that are in progree       
+        else if (gameState === 'LIVE') {
+          let gameClock = ConfigureGameClock(clock, periodDescriptor)
+          
   
-        return <p className='m-0 game-wrapper-font-sm'>{period}</p>
+        return <p className='m-0 game-wrapper-font-sm'>{gameClock}</p>
         } else {
           console.log(gameState)
           return  <p className='m-0 game-wrapper-font-sm'>{gameState}</p>
@@ -59,7 +59,7 @@ const GamesCarousel = ({ items }) => {
 
     return (
       <Col key={id} sm={2} className='m-1 text-center font-weight-bold border border-dark bg-white games-wrapper rounded'>
-        {time(gameState)}
+        {time(gameState, clock)}
         {teamObj(awayTeam)}
         {teamObj(homeTeam)}
       </Col>
