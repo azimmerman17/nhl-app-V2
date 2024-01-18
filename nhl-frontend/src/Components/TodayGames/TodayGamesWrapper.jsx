@@ -42,7 +42,7 @@ const TodaysGamesWrapper = ({ title }) => {
     return (
       <Container>
         <Row >
-          {/* Date stap */}
+          {/* Date Col */}
           <Col md={1} className='text-center font-weight-bold bg-skategray games-wrapper'>
             <div className='fw-bold mt-2'>
               <p className='fw-bold m-0'>{dayAbbrev}</p>
