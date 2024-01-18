@@ -44,14 +44,14 @@ const GamesCarousel = ({ items }) => {
     
         return (
           <Row className='m-0'>
-            <Col>
-              <img src={logo} alt={`${abbrev} Logo`} className='logo-sm'/>
+            <Col md={1}>
+              <img src={logo} alt={`${abbrev} Logo`} className='logo-sm m-0'/>
             </Col>
-            <Col>
-              <h5 className='m-0 text-start'>{abbrev}</h5>
+            <Col md={4}>
+              <h6 className='m-1 text-start'>{window.innerWidth < 1000 ? '' : abbrev}</h6>
             </Col>
-            <Col>
-              {gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' ? <h5 className='m-0'>{score}</h5> : null}
+            <Col md={3}>
+              {gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' ? <h6 className='m-1 text-center'>{score}</h6> : null}
             </Col>
           </Row>
         )

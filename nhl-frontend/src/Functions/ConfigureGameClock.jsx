@@ -1,6 +1,5 @@
 // Configures the Game Clock
 const ConfigureGameClock = (clock, periodDescriptor) => {
-  console.log(clock, periodDescriptor)
   const { number } = periodDescriptor
   // set the period of the game
   let period

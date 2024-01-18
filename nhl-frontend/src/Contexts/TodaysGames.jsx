@@ -8,7 +8,6 @@ const TodaysGamesProvider = ({ children }) => {
     
   useEffect(() => {
     const fetchData = async () => {
-      console.log('rf',new Date())
       const response = await fetch('http://localhost:3000/game/today')
       const data = await response.json()
       const { focusedDate, gamesByDate, focusedDateCount } = await data
