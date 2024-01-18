@@ -8,7 +8,7 @@ const IsMobileProvider = ({ children }) => {
 
   useEffect(() => {
     // checks the width and height 750px x 375px in portrait mode - only 1 has to be true for mobile view
-    if (window.innerWidth < 750 || window.innerHeight < 750 * (1/2)) setIsMobile(true)
+    if (window.innerWidth <= 775 || window.innerHeight <= 775 * (1/2)) setIsMobile(true)
     else setIsMobile(false)
   }, [])
 

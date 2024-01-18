@@ -7,6 +7,7 @@ import { TodaysGames } from '../../Contexts/TodaysGames'
 import { IsMobile } from '../../Contexts/IsMobile'
 import TranslateDate from '../../Functions/TranslateDate';
 import TodayGamesCarousel from './TodayGamesCarousel';
+import ConfigureDayOfWeek from '../../Functions/ConfigureDayOfWeek'
 
 const TodaysGamesWrapper = ({ title }) => {
   const { todaysGames, setTodaysGames } = useContext(TodaysGames)
@@ -14,7 +15,7 @@ const TodaysGamesWrapper = ({ title }) => {
 
   // check for if mobile device or scores page and do not display
   if (!isMobile && todaysGames && title !== 'NHL SCORES') {
-    const { date, dayAbbrev, games } = todaysGames
+    const { date, games } = todaysGames
     let carouselGames = []
 
     // create a max 4 slide carousel arrays with four games in each slide
@@ -38,14 +39,17 @@ const TodaysGamesWrapper = ({ title }) => {
       const { month, day } = dateObj
       return <p>{month} {day}</p>
     }
+
+    // sets day of week
+    let dayOfWeek = ConfigureDayOfWeek(date, true)
     
     return (
       <Container>
         <Row >
-          {/* Date stap */}
+          {/* Date Col */}
           <Col md={1} className='text-center font-weight-bold bg-skategray games-wrapper'>
-            <div className='fw-bold mt-2'>
-              <p className='fw-bold m-0'>{dayAbbrev}</p>
+            <div className='fw-bold mt-2 pt-2'>
+              <p className='fw-bold m-0'>{window.innerWidth < 1000 ? '' : dayOfWeek}</p>
               <p className='fw-bold m-0'>{formatDate(date)}</p>
             </div>
           </Col>

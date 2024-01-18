@@ -3,7 +3,7 @@ const axios = require('axios')
 const BASE_URL = 'https://api-web.nhle.com/'
 
 router.get('/today', async (req, res) => {
-  let path = 'v1/schedule/now'
+  let path = 'v1/scoreboard/now'
   url = BASE_URL + path
   try {
     const response = await axios.get(url)

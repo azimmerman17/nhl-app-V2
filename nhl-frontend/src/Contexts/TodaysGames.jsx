@@ -4,31 +4,44 @@ import { useEffect, createContext, useState } from "react";
 export const TodaysGames = createContext()
 
 const TodaysGamesProvider = ({ children }) => {
-    const [ todaysGames, setTodaysGames ] = useState(null)
-
-    useEffect(() => {
-      const fetchData = async () => {
-        const response = await fetch('http://localhost:3000/game/today')
-        const data = await response.json()
-        const { gameWeek } = await data
-        const { date, dayAbbrev, games } = gameWeek[0]
-        setTodaysGames({
-          date,
-          dayAbbrev,
-          games
-        })
-      }
-      if (!todaysGames) fetchData()
-
-      // add a set invetval for refreshing data
-      
-    }, [todaysGames])
+  const [ todaysGames, setTodaysGames ] = useState(null)
     
-    return (
-        <TodaysGames.Provider value={{ todaysGames, setTodaysGames }}>
-            {children}
-        </TodaysGames.Provider>
-    )
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3000/game/today')
+      const data = await response.json()
+      const { focusedDate, gamesByDate, focusedDateCount } = await data
+      let i = 0
+      // sets the game date for the focused Date (ususally today or yesterday)
+      while (!todaysGames || i < focusedDateCount) {
+        const { games, date } = gamesByDate[i]
+        if (focusedDate === date)  {
+          setTodaysGames({
+            games,
+            date
+          })
+          break
+        }
+        i++
+      }
+    }
+
+    if (!todaysGames) fetchData()
+    // set or clear interval for reload 
+    if (todaysGames) {
+      let interval = setInterval(() => {
+        fetchData()
+      }, 60 * 1000)
+
+      return () => clearInterval(interval)
+    }
+  }, [todaysGames])
+  
+  return (
+      <TodaysGames.Provider value={{ todaysGames, setTodaysGames }}>
+          {children}
+      </TodaysGames.Provider>
+  )
 }
 
 export default TodaysGamesProvider
