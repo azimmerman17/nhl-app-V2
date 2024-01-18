@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container"
 
 import UTCTimeToLocal from '../../Functions/UTCTimeToLocal'
 import ConfigureGameClock from "../../Functions/ConfigureGameClock"
+import SetGamesHeaderBorder from "../../Functions/SetGamesHeaderBorder"
 
 const GamesCarousel = ({ items }) => {
   // builds each game card in the carousel
@@ -58,7 +59,7 @@ const GamesCarousel = ({ items }) => {
       }   
 
     return (
-      <Col key={id} sm={2} className='m-1 text-center font-weight-bold border border-dark bg-white games-wrapper rounded'>
+      <Col key={id} sm={2} className={`m-1 text-center font-weight-bold border border-2 border-${SetGamesHeaderBorder(gameState, clock, periodDescriptor)} bg-white games-wrapper rounded`}>
         {time(gameState, clock)}
         {teamObj(awayTeam)}
         {teamObj(homeTeam)}
