@@ -1,25 +1,25 @@
 import Dropdown from 'react-bootstrap/Dropdown'
 
-const StandingsDropDown = ({ standingsTabList, standingsTab, setStandingsTab }) => {
+const StandingsDropDown = ({ StandingsViews, view, setView }) => {
 
   return(
     <Dropdown >
       <Dropdown.Toggle 
         variant="secondary" 
         id="dropdown-standings">
-        {standingsTab}
+        {view}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
         {
-          standingsTabList.map(tab => {
+          StandingsViews.map(tab => {
             const { nme } = tab
             return (
               <Dropdown.Item 
                 eventKey={nme}
                 title={nme}
                 key={`tab-${nme}`}
-                onClick={(e) => setStandingsTab(nme)}
+                onClick={(e) => setView(nme)}
               >
                 {nme}
               </Dropdown.Item>

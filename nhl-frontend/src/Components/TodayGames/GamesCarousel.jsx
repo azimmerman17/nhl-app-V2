@@ -12,7 +12,6 @@ const GamesCarousel = ({ items }) => {
     // no game no card on slide ex. 10 games  returns slides of 4 - 4 - 2 
     if (!item) return null
     const { awayTeam, id, homeTeam, gameState, periodDescriptor, clock, startTimeUTC } = item
-    console.log(item)
 
     // displays the time of game or state of game
     const time = (gameState, clock) => {
