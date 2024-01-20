@@ -8,6 +8,7 @@ import { StandingsData } from "../../../Contexts/StandingsData"
 import StandingsHeaders from "./StandingsHeaders"
 import StandingsTableRow from "./StandingTableRow"
 import DeriveDivisionStandings from "../../../Functions/DeriveDivisionStandings"
+import DeriveWildCardStandings from "../../../Functions/DeriveWildCardStandings"
 
 const DivisionWildCardView = ({ view }) => {
   const { standingsData, setStandingsData } = useContext(StandingsData)
@@ -16,14 +17,14 @@ const DivisionWildCardView = ({ view }) => {
     const { standings } = standingsData
     let currentStandings 
     if (view === 'Divisional') currentStandings = DeriveDivisionStandings(standings)
-    else if (view === 'Wild Card') currentStandings = 'DeriveWildCardStandings(standings)'
+    else if (view === 'Wild Card') currentStandings = DeriveWildCardStandings(standings)
 
     const { confArr, divArr, divStandingsArr } = currentStandings
 
     const conferences = confArr.map((conf, i) => {
       const divisions = divArr[i].map((div, j) => {
         const divisionRows =  divStandingsArr[i][j].map((team, k) => {
-          return <StandingsTableRow team={team} view={view} row={j} key={`Division-row-${i}-${j}-${k}`} />
+          return <StandingsTableRow team={team} view={div === 'Wild Card' ? 'Wild Card' : 'Divisional' } row={j} key={`Division-row-${i}-${j}-${k}`} />
         })
 
         return (

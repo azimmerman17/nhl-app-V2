@@ -17,8 +17,10 @@ const StandingsTabs = () => {
       case 'Conference':
         return <ConferenceView />
       case 'Divisional':
+        return <DivisionWildCardView view={tab}/>      
+      case 'Wild Card':
         return <DivisionWildCardView view={tab}/>
-      
+
       default:
         return <h6>{tab} page not built</h6>
     }
