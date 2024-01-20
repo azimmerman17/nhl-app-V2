@@ -4,6 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 
 import StandingsViews from '../../../assets/Files/StandingsViews';
 import LeagueView from './LeaguesView';
+import ConferenceView from './ConferenceView';
 
 const StandingsTabs = () => {
   const [tab, setTab] = useState(StandingsViews[0].nme);
@@ -12,9 +13,10 @@ const StandingsTabs = () => {
     switch (tab) {
       case 'League':
         return <LeagueView />
-        break
+      case 'Conference':
+        return <ConferenceView />
       default:
-        return <h6>{tab} page in progress</h6>
+        return <h6>{tab} page not built</h6>
     }
 
   }

@@ -18,9 +18,7 @@ if (standingsData){
   })
 
   return (
-    <Table 
-      hover
-    >
+    <Table hover>
       <thead>
         <StandingsHeaders />
       </thead>
