@@ -5,6 +5,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import StandingsViews from '../../../assets/Files/StandingsViews';
 import LeagueView from './LeaguesView';
 import ConferenceView from './ConferenceView';
+import DivisionWildCardView from './DivisionWildCardView';
 
 const StandingsTabs = () => {
   const [tab, setTab] = useState(StandingsViews[0].nme);
@@ -15,6 +16,9 @@ const StandingsTabs = () => {
         return <LeagueView />
       case 'Conference':
         return <ConferenceView />
+      case 'Divisional':
+        return <DivisionWildCardView view={tab}/>
+      
       default:
         return <h6>{tab} page not built</h6>
     }
@@ -38,7 +42,6 @@ const StandingsTabs = () => {
           eventKey={nme}
           title={nme}
           key={`tab-${nme}`}
-
         >
           {setView(nme)}
         </Tab>

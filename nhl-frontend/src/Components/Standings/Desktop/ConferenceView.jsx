@@ -12,7 +12,7 @@ import StandingsTableRow from "./StandingTableRow"
 const ConferenceView = () => {
   const { standingsData, setStandingsData } = useContext(StandingsData)
 
-  if (standingsData){
+  if (standingsData) {
     const { standings } = standingsData
     
     let confStandings = DeriveConferenceStandings(standings)
@@ -25,7 +25,7 @@ const ConferenceView = () => {
 
       return (
         <Row key={`${conf}-conference-standings-${i}`} className='my-2 py-2' >
-          <h4 className='text-center'>{conf}</h4>
+          <h2 className='text-center'>{conf} Conference</h2>
           <Table hover>
             <thead>
               <StandingsHeaders />
