@@ -43,7 +43,7 @@ const StandingsTableData = ({ team, header, view }) => {
     case 'Team':
       if (window.innerWidth < 1000) return <td className='text-center'><img className='logo-alone-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /></td>
       else if (window.innerWidth < 1100) return <td><img className='logo-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /> {teamAbbrev.default}</td>
-      else return <td><img className='logo-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /> {teamName.default}</td>
+      else return <td style={{'width': `${window.innerWidth * .22}px`}}><img className='logo-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /> {teamName.default}</td>
     case 'GP':
       return <td className='text-center'>{gamesPlayed}</td>
     case 'W':
@@ -65,9 +65,11 @@ const StandingsTableData = ({ team, header, view }) => {
     case 'GA':
       return <td className='text-center'>{goalAgainst}</td>
     case 'Home':
-      return <td className='text-center'>{homeWins}-{homeLosses}-{homeOtLosses}</td>
+      if (window.innerWidth >= 1000) return <td className='text-center'>{homeWins}-{homeLosses}-{homeOtLosses}</td>
+      break
     case 'Away':
-      return <td className='text-center'>{roadWins}-{roadLosses}-{roadOtLosses}</td>
+      if (window.innerWidth >= 1000) return <td className='text-center'>{roadWins}-{roadLosses}-{roadOtLosses}</td>
+      break
     case 'L10':
       return <td className='text-center'>{l10Wins}-{l10Losses}-{l10OtLosses}</td>
     case 'Streak':
