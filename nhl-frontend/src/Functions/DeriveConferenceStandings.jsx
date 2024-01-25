@@ -2,7 +2,8 @@
 const DeriveConferenceStandings = (standings) => {
   let confArr = []
   let standingsArr = []
-  // get all conference names
+
+  // get all conference names and builds the arrays
   standings.forEach(team => {
     const { conferenceName } = team
     if (!confArr.includes(conferenceName)) {
@@ -15,11 +16,8 @@ const DeriveConferenceStandings = (standings) => {
   confArr = confArr.sort()
 
   // put the teams in there conferences
-  standings.forEach(team => {
-    const { conferenceName, conferenceSequence } = team
-    for (let i = 0; i < confArr.length; i++) {
-      if (conferenceName === confArr[i]) standingsArr[i][conferenceSequence - 1] = team
-    }
+  confArr.forEach((confernence, i) => {
+    standingsArr[i] = standings.filter(team => team.conferenceName === confernence)
   })
 
   return (

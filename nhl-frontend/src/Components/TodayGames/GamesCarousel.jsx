@@ -61,10 +61,6 @@ const GamesCarousel = ({ items }) => {
         {teamObj(homeTeam)}
       </Col>
     )
-    
-
-
-
   })
   return (
     // 2 empty columns to center the games

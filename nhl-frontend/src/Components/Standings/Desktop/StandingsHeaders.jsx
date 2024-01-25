@@ -2,20 +2,7 @@
 import StandingsHeadersList from "../../../assets/Files/StandingsHeadersList"
 
 const StandingsHeaders = () => {
-
-  const checkItem = (item) => {
-    switch (item) {
-      case 'Home':
-        if (window.innerWidth >= 1000) return item
-        break
-      case 'Away':
-        if (window.innerWidth >= 1000) return item
-        break
-      default:
-        return item
-    }
-  }
-
+  
   return (
     <tr>
       {StandingsHeadersList.map(item => {

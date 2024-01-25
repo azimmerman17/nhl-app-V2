@@ -8,7 +8,6 @@ const StandingsTableData = ({ team, header, view }) => {
     leagueSequence,       // League Rank
     wildcardSequence,     // Wild Card Rank - 0 === Top 3 Div
     teamName,             // Team Name object (en,fr)
-    placeName,            // Team City
     teamAbbrev,           // Team Abbrvation
     teamLogo,             // Team Logo
     gamesPlayed,          // GP

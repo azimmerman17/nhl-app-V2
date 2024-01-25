@@ -8,8 +8,8 @@ import MobileView from "./Mobile/MoblieView";
 
 const Standings = ({ setTitle }) => {
   let { isMobile, setIsMobile } = useContext(IsMobile)
-  console.log(window.innerWidth)
-  // setTitle('Standings')
+  
+  setTitle('Standings')
 
   return (
     <div className={isMobile ? 'p-3 bg-white' : 'm-4 p-3 bg-white'}>

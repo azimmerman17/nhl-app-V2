@@ -4,7 +4,9 @@
     { nme: 'Wild Card' },
     { nme: 'Conference' },
     {nme: 'League'},
+    // {nme: 'Playoffs'},
     // {nme: 'IIHF'},
+
   ]
 
 export default StandingsViews

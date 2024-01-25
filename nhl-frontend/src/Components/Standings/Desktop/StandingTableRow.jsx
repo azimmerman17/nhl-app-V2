@@ -1,6 +1,4 @@
 // creates columns for each row
-import Table from "react-bootstrap/Table"
-
 import StandingsHeadersList from "../../../assets/Files/StandingsHeadersList"
 import StandingsTableData from "./StandingsTableData"
 

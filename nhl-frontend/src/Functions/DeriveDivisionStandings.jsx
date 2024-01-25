@@ -3,10 +3,13 @@
 import DeriveConferenceStandings from "./DeriveConferenceStandings"
 
 const DeriveDivisionStandings = (standings) => {
+  // Use the Conference Function to get the team sorted by conference
   let conferences = DeriveConferenceStandings(standings)
 
   const { confArr, standingsArr } = conferences
+  // Array for the Division Names
   let divArr = []
+  // Array for the Teams
   let divStandingsArr = []
 
   // build array for the division names and an empty array for the standings 
@@ -24,14 +27,12 @@ const DeriveDivisionStandings = (standings) => {
     }
   })
 
-  // order the teams in the standings 
+  // order the teams in the standings - Loop through the Conferences
   for (let i = 0; i < divArr.length; i++) {
-    standingsArr[i].forEach((team, j) => {
-      const { divisionName, divisionSequence } = team
-      for (let k = 0; k < divArr[i].length; k++) {
-        if (divArr[i][k] === divisionName) divStandingsArr[i][k][divisionSequence - 1] = team
-      }
-    })
+    // Loop through the Divisions
+     divArr[i].forEach((division, j) => {
+      divStandingsArr[i][j] = standingsArr[i].filter(team => team.divisionName === division)
+     })
   }
 
  return {

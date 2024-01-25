@@ -4,7 +4,7 @@ import { useEffect, createContext, useState } from "react";
 export const IsMobile = createContext()
 
 const IsMobileProvider = ({ children }) => {
-  const [isMobile, setIsMobile] = useState(false)
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 775 || window.innerHeight <= 775 * (1/2))
 
   useEffect(() => {
     // checks the width and height 750px x 375px in portrait mode - only 1 has to be true for mobile view

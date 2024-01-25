@@ -24,9 +24,7 @@ const StandingsTabs = () => {
       default:
         return <h6>{tab} page not built</h6>
     }
-
   }
-
 
   return (
     <Tabs
