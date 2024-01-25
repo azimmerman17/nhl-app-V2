@@ -1,10 +1,14 @@
-import StandingsDropDown from "./StandingsDropDown"
+import { useState } from "react"
 
-const MobileView = ({ standingsTabList,  standingsTab, setStandingsTab }) => { 
+import StandingsDropDown from "./StandingsDropDown"
+import StandingsViews from "../../../assets/Files/StandingsViews"
+
+const MobileView = ({ standingsTabList, }) => { 
+  let [ view, setView ] = useState(StandingsViews[0])
 
   return (
     <div>
-      <StandingsDropDown standingsTabList={standingsTabList} standingsTab={standingsTab} setStandingsTab={setStandingsTab} />
+      <StandingsDropDown StandingsViews={StandingsViews} view={view} setView={setView} />
       Standings Data
     </div>
   )

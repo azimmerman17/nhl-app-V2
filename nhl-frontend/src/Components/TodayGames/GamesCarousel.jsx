@@ -12,7 +12,6 @@ const GamesCarousel = ({ items }) => {
     // no game no card on slide ex. 10 games  returns slides of 4 - 4 - 2 
     if (!item) return null
     const { awayTeam, id, homeTeam, gameState, periodDescriptor, clock, startTimeUTC } = item
-    console.log(item)
 
     // displays the time of game or state of game
     const time = (gameState, clock) => {
@@ -26,16 +25,13 @@ const GamesCarousel = ({ items }) => {
         // Games that are complete
         if (gameState === 'FINAL' || gameState === 'OFF') return <p className='m-0 game-wrapper-font-sm'>Final{number > 3 ? ` ${periodType}`: null}</p>
         // Games that are in progree       
-        else if (gameState === 'LIVE') {
+        else if (gameState === 'LIVE' || gameState === 'CRIT') {
           let gameClock = ConfigureGameClock(clock, periodDescriptor)
-          
-  
         return <p className='m-0 game-wrapper-font-sm'>{gameClock}</p>
         } else {
           console.log(gameState)
           return  <p className='m-0 game-wrapper-font-sm'>{gameState}</p>
         }
-        
       }
     }
 
@@ -52,7 +48,7 @@ const GamesCarousel = ({ items }) => {
               <h6 className='m-1 text-start'>{window.innerWidth < 1000 ? '' : abbrev}</h6>
             </Col>
             <Col md={3}>
-              {gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' ? <h6 className='m-1 text-center'>{score}</h6> : null}
+              {gameState === 'LIVE' || gameState === 'OFF' || gameState === 'FINAL' || gameState === 'CRIT' ? <h6 className='m-1 text-center'>{score}</h6> : null}
             </Col>
           </Row>
         )
@@ -65,10 +61,6 @@ const GamesCarousel = ({ items }) => {
         {teamObj(homeTeam)}
       </Col>
     )
-    
-
-
-
   })
   return (
     // 2 empty columns to center the games
