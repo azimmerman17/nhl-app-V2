@@ -57,7 +57,7 @@ const DivisionWildCardMobileView = ({ view }) => {
     return (
       <Container 
         fluid
-        className='mx-0 px-0'
+        className='mx-0 px-0 mt-2'
       >
         {conferences}
       </Container>
