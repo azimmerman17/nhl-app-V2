@@ -24,10 +24,10 @@ const ConferenceMobileView = () => {
       })
 
       return (
-        <Row key={`${conf}-conference-standings-${i}`} className='my-2 py-2' >
+        <Row key={`${conf}-conference-standings-${i}-mobile`} className='my-2 py-2' >
           <h6 className='text-center fw-bold'>{conf} Conference</h6>
           <Table
-            className='mx-0 mt-2'
+            className='mx-0 mt-2 mb-0'
             size='sm'
             hover
            >

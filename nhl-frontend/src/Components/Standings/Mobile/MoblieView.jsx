@@ -5,6 +5,7 @@ import StandingsViews from "../../../assets/Files/StandingsViews"
 import StandingsRadioMobile from "./StandingsRadioMobile";
 import LeagueMobileView from "./LeagueMobileView";
 import ConferenceMobileView from "./ConferenceMobileView";
+import DivisionWildCardMobileView from "./DivisionWildCardMobileView";
 
 const MobileView = () => { 
   const [view, setView] = useState(StandingsViews[0].nme);
@@ -15,10 +16,10 @@ const MobileView = () => {
         return <LeagueMobileView />
       case 'Conference':
         return <ConferenceMobileView />
-      // case 'Division':
-      //   return <DivisionWildCardView view={view}/>      
-      // case 'Wild Card':
-      //   return <DivisionWildCardView view={view}/>
+      case 'Division':
+        return <DivisionWildCardMobileView view={view}/>      
+      case 'Wild Card':
+        return <DivisionWildCardMobileView view={view}/>
 
       default:
         return <h6>{view} page not built</h6>
