@@ -79,8 +79,6 @@ const StandingsTableData = ({ team, header, view }) => {
       else if (view === 'Conference') return <td className='text-center font-mobile'>{conferenceSequence}</td>
       else if (view === 'Division') return <td className='text-center font-mobile'>{divisionSequence}</td>
       else return <td className='text-center font-mobile'>{wildcardSequence}</td>
-    case 'mRk':
-      return <td className='font-mobile'>{}</td>
     case 'mTeam':
       return <td className='font-mobile'><img className='logo-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /> {teamAbbrev.default}</td>
     case 'mGP':

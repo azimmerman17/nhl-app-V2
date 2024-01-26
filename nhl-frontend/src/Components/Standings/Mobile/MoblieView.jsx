@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import StandingsViews from "../../../assets/Files/StandingsViews"
 import StandingsRadioMobile from "./StandingsRadioMobile";
 import LeagueMobileView from "./LeagueMobileView";
+import ConferenceMobileView from "./ConferenceMobileView";
 
 const MobileView = () => { 
   const [view, setView] = useState(StandingsViews[0].nme);
@@ -12,8 +13,8 @@ const MobileView = () => {
     switch (view) {
       case 'League':
         return <LeagueMobileView />
-      // case 'Conference':
-      //   return <ConferenceView />
+      case 'Conference':
+        return <ConferenceMobileView />
       // case 'Division':
       //   return <DivisionWildCardView view={view}/>      
       // case 'Wild Card':
