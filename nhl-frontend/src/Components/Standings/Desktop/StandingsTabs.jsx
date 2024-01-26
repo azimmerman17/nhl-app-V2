@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
@@ -16,7 +16,7 @@ const StandingsTabs = () => {
         return <LeagueView />
       case 'Conference':
         return <ConferenceView />
-      case 'Divisional':
+      case 'Division':
         return <DivisionWildCardView view={tab}/>      
       case 'Wild Card':
         return <DivisionWildCardView view={tab}/>

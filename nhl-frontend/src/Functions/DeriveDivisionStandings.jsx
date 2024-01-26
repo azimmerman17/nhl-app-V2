@@ -1,4 +1,4 @@
-//  Creates Divisional Standings from dervived Conference Standings
+//  Creates Division Standings from dervived Conference Standings
 
 import DeriveConferenceStandings from "./DeriveConferenceStandings"
 

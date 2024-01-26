@@ -16,7 +16,7 @@ const DivisionWildCardView = ({ view }) => {
   if (standingsData) {
     const { standings } = standingsData
     let currentStandings 
-    if (view === 'Divisional') currentStandings = DeriveDivisionStandings(standings)
+    if (view === 'Division') currentStandings = DeriveDivisionStandings(standings)
     else if (view === 'Wild Card') currentStandings = DeriveWildCardStandings(standings)
 
     const { confArr, divArr, divStandingsArr } = currentStandings
@@ -24,11 +24,11 @@ const DivisionWildCardView = ({ view }) => {
     const conferences = confArr.map((conf, i) => {
       const divisions = divArr[i].map((div, j) => {
         const divisionRows =  divStandingsArr[i][j].map((team, k) => {
-          return <StandingsTableRow team={team} view={div === 'Wild Card' ? 'Wild Card' : 'Divisional' } row={j} key={`Division-row-${i}-${j}-${k}`} />
+          return <StandingsTableRow team={team} view={div === 'Wild Card' ? 'Wild Card' : 'Division' } row={j} key={`Division-row-${i}-${j}-${k}`} />
         })
 
         return (
-          <Row key={`${div}-${view === 'Divisional' ? 'div' :'wc'}-standings-${i}-${j}`} className='my-2 py-2' >
+          <Row key={`${div}-${view === 'Division' ? 'div' :'wc'}-standings-${i}-${j}`} className='my-2 py-2' >
             <h4 className='text-center'>{div} Division</h4>
             <Table hover>
               <thead>
@@ -43,7 +43,7 @@ const DivisionWildCardView = ({ view }) => {
       })
 
       return (
-        <Row key={`${conf}-${view === 'Divisional' ? 'div' :'wc'}-standings-${i}`} className='my-2 py-2' >
+        <Row key={`${conf}-${view === 'Division' ? 'div' :'wc'}-standings-${i}`} className='my-2 py-2' >
           <h2 className='text-center'>{conf} Conference</h2>
           {divisions}
         </Row>

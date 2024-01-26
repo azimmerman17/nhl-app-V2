@@ -1,6 +1,6 @@
   // List of different standings views
   const StandingsViews = [
-    { nme: 'Divisional' },
+    { nme: 'Division' },
     { nme: 'Wild Card' },
     { nme: 'Conference' },
     {nme: 'League'},

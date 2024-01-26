@@ -1,17 +1,36 @@
 import { useState } from "react"
+import Container from "react-bootstrap/Container";
 
-import StandingsDropDown from "./StandingsDropDown"
 import StandingsViews from "../../../assets/Files/StandingsViews"
+import StandingsRadioMobile from "./StandingsRadioMobile";
+import LeagueMobileView from "./LeagueMobileView";
 
-const MobileView = ({ standingsTabList, }) => { 
-  let [ view, setView ] = useState(StandingsViews[0])
+const MobileView = () => { 
+  const [view, setView] = useState(StandingsViews[0].nme);
+
+  const showView = (view) => {
+    switch (view) {
+      case 'League':
+        return <LeagueMobileView />
+      // case 'Conference':
+      //   return <ConferenceView />
+      // case 'Division':
+      //   return <DivisionWildCardView view={view}/>      
+      // case 'Wild Card':
+      //   return <DivisionWildCardView view={view}/>
+
+      default:
+        return <h6>{view} page not built</h6>
+    }
+
+  }
 
   return (
-    <div>
-      <StandingsDropDown StandingsViews={StandingsViews} view={view} setView={setView} />
-      Standings Data
-    </div>
-  )
+      <Container className='mx-o'>
+        <StandingsRadioMobile view={view} setView={setView} />
+        {showView(view)}
+      </Container>
+    )
 
 }
 
