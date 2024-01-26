@@ -5,12 +5,12 @@ import Container from "react-bootstrap/Container"
 import Row  from "react-bootstrap/Row"
 
 import { StandingsData } from "../../../Contexts/StandingsData"
-import StandingsHeaders from "./StandingsHeaders"
-import StandingsTableRow from "./StandingTableRow"
+import StandingsHeadersMobile from "./StandingsHeadersMobile"
+import StandingsTableRowMobile from "./StandingsTableRowMobile"
 import DeriveDivisionStandings from "../../../Functions/DeriveDivisionStandings"
 import DeriveWildCardStandings from "../../../Functions/DeriveWildCardStandings"
 
-const DivisionWildCardView = ({ view }) => {
+const DivisionWildCardMobileView = ({ view }) => {
   const { standingsData, setStandingsData } = useContext(StandingsData)
 
   if (standingsData) {
@@ -24,15 +24,19 @@ const DivisionWildCardView = ({ view }) => {
     const conferences = confArr.map((conf, i) => {
       const divisions = divArr[i].map((div, j) => {
         const divisionRows =  divStandingsArr[i][j].map((team, k) => {
-          return <StandingsTableRow team={team} view={div === 'Wild Card' ? 'Wild Card' : 'Division' } row={j} key={`Division-row-${i}-${j}-${k}`} />
+          return <StandingsTableRowMobile team={team} view={div === 'Wild Card' ? 'Wild Card' : 'Division' } row={j} key={`Division-row-${i}-${j}-${k}`} />
         })
 
         return (
-          <Row key={`${div}-${view === 'Division' ? 'div' :'wc'}-standings-${i}-${j}`} className='my-2 py-2' >
-            <h4 className='text-center'>{div} Division</h4>
-            <Table hover>
+          <Row key={`${div}-${view === 'Division' ? 'div' :'wc'}-standings-${i}-${j}-mobile`} className='my-2 py-2' >
+            <p className='text-center fw-bold font-mobile m-0 p-0'>{div} Division</p>
+            <Table 
+              className='mx-0 mt-2 mb-0'
+              size='sm'
+              hover
+            >
               <thead>
-                <StandingsHeaders />
+                <StandingsHeadersMobile />
               </thead>
               <tbody>
                 {divisionRows}
@@ -43,8 +47,8 @@ const DivisionWildCardView = ({ view }) => {
       })
 
       return (
-        <Row key={`${conf}-${view === 'Division' ? 'div' :'wc'}-standings-${i}`} className='my-2 py-2' >
-          <h2 className='text-center'>{conf} Conference</h2>
+        <Row key={`${conf}-${view === 'Division' ? 'div' :'wc'}-standings-${i}-mobile`} className='mt-2 pt-2' >
+          <h6 className='text-center fw-bold mb-0'>{conf} Conference</h6>
           {divisions}
         </Row>
       )
@@ -65,4 +69,4 @@ const DivisionWildCardView = ({ view }) => {
   }
 }
 
-export default DivisionWildCardView
+export default DivisionWildCardMobileView

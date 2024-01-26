@@ -23,9 +23,14 @@
 .game-wrapper-font-sm {
   font-size: 12px;
 }
+
 #root {
   width: 100%;
   background-color: #eee;
+}
+
+.font-mobile {
+  font-size: small;
 }
 
 

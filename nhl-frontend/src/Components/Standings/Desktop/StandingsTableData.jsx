@@ -37,7 +37,7 @@ const StandingsTableData = ({ team, header, view }) => {
     case 'Rank':
       if (view === 'League') return <td className='text-center'>{leagueSequence}</td>
       else if (view === 'Conference') return <td className='text-center'>{conferenceSequence}</td>
-      else if (view === 'Divisional') return <td className='text-center'>{divisionSequence}</td>
+      else if (view === 'Division') return <td className='text-center'>{divisionSequence}</td>
       else return <td className='text-center'>{wildcardSequence}</td>
     case 'Team':
       if (window.innerWidth < 1000) return <td className='text-center'><img className='logo-alone-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /></td>
@@ -73,6 +73,26 @@ const StandingsTableData = ({ team, header, view }) => {
       return <td className='text-center'>{l10Wins}-{l10Losses}-{l10OtLosses}</td>
     case 'Streak':
       return <td className='text-center'>{streakCode}{streakCount}</td>
+    //mobile only 
+    case 'mRk':
+      if (view === 'League') return <td className='text-center font-mobile'>{leagueSequence}</td>
+      else if (view === 'Conference') return <td className='text-center font-mobile'>{conferenceSequence}</td>
+      else if (view === 'Division') return <td className='text-center font-mobile'>{divisionSequence}</td>
+      else return <td className='text-center font-mobile'>{wildcardSequence}</td>
+    case 'mTeam':
+      return <td className='font-mobile'><img className='logo-sm' src={teamLogo} alt={`${teamAbbrev.default}-logo`} /> {teamAbbrev.default}</td>
+    case 'mGP':
+      return <td className='font-mobile'>{gamesPlayed}</td>
+    case 'mRecord':
+      return <td className='font-mobile'>{wins}-{losses}-{otLosses}</td>
+    case 'mP':
+      return <td className='font-mobile'>{points}</td>
+    case 'mP%':
+      return <td className='font-mobile'>{(pointPctg * 100).toFixed(2)}%</td>
+    case 'mDiff':
+      return <td className='font-mobile'>{goalFor - goalAgainst > 0? `+${goalFor - goalAgainst}` : goalFor - goalAgainst}</td>
+    case 'mStrk':
+      return <td className='font-mobile'>{streakCode}{streakCount}</td>
   }
 }
 
